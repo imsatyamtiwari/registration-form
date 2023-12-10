@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+           <img src="https://res.cloudinary.com/debbsefe/image/upload/f_auto,c_fill,dpr_auto,e_grayscale/image_fz7n7w.webp" alt="header-image" class="cld-responsive">
+                <h1 class="form-title">Register Here</h1>
+                <div class="form">
+                   <input type="text" placeholder="NAME" >
+                <div class="beside">
+                    <input type="number" placeholder="PHONE NUMBER">
+                    <select>
+                        <option>GENDER</option>
+                        <option>MALE</option>
+                        <option>FEMALE</option>
+                        <option>NON-BINARY</option>
+                    </select>
+                </div>
+                    <input type="email" placeholder="EMAIL ADDRESS">
+                    <input type="number" placeholder="CODE"><br>
+                    <button type="button">Submit</button>
+            </div>
+            </div>
+     </div>
+<script>
+
+const input = document.querySelectorAll("input");
+const button = document.querySelector("button");
+const gender = document.querySelector("select");
+
+ async function run (){
+    const data = {
+        name:input[0].value,
+        Phone:input[1].value,
+        email:input[2].value,
+        code:input[3].value,
+        gender:gender.value
+    }
+
+    const options = {
+        method:'POST',
+        headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body:JSON.stringify(data)
+
+    }
+
+   await fetch('/',options);
+   alert("You have been registered");
+   location.reload();
+    
+}
+
+button.addEventListener('click',run)
+
+
+</script>
+</body>
+</html>
